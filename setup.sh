@@ -1,11 +1,12 @@
 #!/bin/sh
 
-ln -s $(pwd)/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/Preferences.sublime-settings
+files=$(ls -al | grep '^-' | awk '{print $9}')
 
-ln -s $(pwd)/.zshrc ~/.zshrc
+for file in $files
+do
+    if [ "$file" == "setup.sh" ]; then
+        break
+    fi
+    ln -s $(pwd)/$file $HOME/$file
+done
 
-ln -s $(pwd)/.vimrc ~/.vimrc
-
-ln -s $(pwd)/.slate ~/.slate
-
-ln -s $(pwd)/.gitconfig ~/.gitconfig
