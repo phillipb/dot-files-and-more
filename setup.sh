@@ -10,3 +10,5 @@ do
     ln -s $(pwd)/$file $HOME/$file
 done
 
+ln -s $(pwd)/.vim_runtime $HOME/.vim_runtime
+
